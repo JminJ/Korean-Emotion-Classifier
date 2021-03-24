@@ -102,4 +102,25 @@ class MyEngine(Engine):
             if verbose >= VERBOSE_EPOCH_WISE:
                 @train_engine.on(Events.EPOCH_COMPLETED)
                 def print_train_logs(engine):
-                    print('Epoch {} - |param\ = {:.2e} loss = {:.4e} accuracy = {}')
+                    print('Epoch {} - |param\ = {:.2e} loss = {:.4e} accuracy = {}').format(
+                        engine.state.epoch,
+                        engine.state.metrics['|param|'],
+                        engnie.state.metrics['|g_param|'],
+                        engine.state.metrics['loss'],
+                        engnie.state.metrics['accuracy']
+                    )
+                validation_metric_names = ['loss','accuracy']
+
+                for metric_name in validation_metric_names:
+                    attatch_running_average(validation_engine, metric_name)
+
+                if verbose >= VERBOSE_EPOCH_WISE:
+                    @validation_engine.on(Events.EPOCH_COMPLETED)
+                    def print_valid_logs(engine):
+                        print('Validation - loss={:.4e} accuracy={:.4f} best_loss={:4.}'.format(
+                            engine.state.metrics['loss'],
+                            engine.state.metrics['accuracy'],
+                            engine.best_loss,
+                        ))
+
+                    @staticmethos
