@@ -1,5 +1,5 @@
 import torch
-import torch.nn
+import torch.nn as nn
 
 class rnn_model(nn.Model):
   def __init__(self, input_size, hidden_size, output_size, n_laryers = 4, dropout_p = 0.15):
