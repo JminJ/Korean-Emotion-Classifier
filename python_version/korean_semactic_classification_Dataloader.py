@@ -34,7 +34,7 @@ class DataLoader(object):
         ],
     ).split(split_ratio = (1-valid_ratio))
 
-    self.train_loader, self.test_loader = data.BucketIterator.splits(
+    self.train_loader, self.valid_loader = data.BucketIterator.splits(
         (train, valid),
         batch_size = batch_size,
         device = 'cpu',
