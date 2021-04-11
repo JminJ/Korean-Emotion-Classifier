@@ -9,7 +9,7 @@ import korean_semantic_classification_trainer as T
 import korean_semactic_classification_Dataloader as D
 import korean_semantic_classification_RNN_model as R
 
-def define_argparser(): # colab에서는 easydict를 사용했습니다.
+def define_argparser(): # 이 프로젝트에서는 easydict를 사용했습니다.
   args = easydict.EasyDict({
       'model_fn' : "",
       'train_fn' : '',
